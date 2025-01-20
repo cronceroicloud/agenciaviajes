@@ -1,0 +1,40 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+        .row
+
+            .col-md-12
+                h2.d-block.w-100.text-center Viaje a #{resultado.titulo}
+                p.d-block.w-100.text-center.text-danger.font-weight-bold.p-3.border.border-danger.rounded
+                    | Fechas:
+                    strong #{new Date(resultado.fecha_ida).toLocaleDateString('es-ES')} - #{new Date(resultado.fecha_vuelta).toLocaleDateString('es-ES')}
+
+                if (errores)
+                    each error in errores
+                        .alert.col.alert-danger.text-center=error.mensaje
+
+            .row.justify-content-center.col
+                .col-md-8
+                    form(action="/comprar" method="POST")
+                        .form-group
+                            label(style="font-weight: bold;", for="nombre") Nombre
+                            input#nombre(type="text", placeholder="Tu nombre", name="nombre", class="form-control", value=nombre)
+                        .form-group
+                            label(style="font-weight: bold;", for="apellidos") Apellidos
+                            input#apellidos(type="text", placeholder="Tus apellidos", name="apellidos", class="form-control", value=apellidos)
+                        .form-group
+                            label(style="font-weight: bold;", for="correo") Correo Electrónico
+                            input#correo(type="text", placeholder="Tu correo electrónico", name="correo", class="form-control", value=correo)
+                        .form-group
+                            label(style="font-weight: bold;", for="telefono") Teléfono
+                            input#telefono(type="text", placeholder="Tu número de teléfono", name="telefono", class="form-control", value=telefono)
+                            input#slug(type="hidden", name="slug", value=resultado.slug)
+
+
+
+                        button.btn.btn-success.btn-block(type="submit") Enviar mensaje de compra
+
+
+

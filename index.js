@@ -2,6 +2,7 @@
 import express from 'express';
 import router from './routers/index.js';
 import db from './config/db.js';
+import moment from 'moment';
 
 
 
@@ -51,4 +52,6 @@ app.listen(port, () => {
     console.log('Servidor corriendo en el puerto ' + port);
 });
 
-
+//En package.json cuando vaya a desarrollo
+//"start": "index.js"
+//    "dev": "nodemon index.js"

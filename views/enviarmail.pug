@@ -1,0 +1,20 @@
+extends ./layout/index
+
+block contenido
+    main.container.mt-5
+        h1.text-center.mt-5 #{pagina}
+        .row
+            .col-md-12
+                h2.d-block.w-100.text-center Viaje a #{resultado.titulo}
+
+        //- Mensaje de confirmación
+        .row
+            .col-md-12.text-center.mt-4
+                p.font-weight-bold Se ha enviado un mail a nuestra central y en breve nos pondremos en contacto con usted.
+                p.font-weight-bold Gracias por confiar en nosotros.
+
+        //- Botón para volver al inicio
+        .row
+            .col-md-12.text-center.mt-4
+                a.btn.btn-primary(href='/') Volver al Inicio
+
